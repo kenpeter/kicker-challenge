@@ -5,6 +5,8 @@ import history from './history';
 import './App.css';
 import store from './store';
 import Home from './containers/Home';
+import Job from './containers/Job';
+import CreateJob from './containers/CreateJob';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class App extends Component {
@@ -13,8 +15,14 @@ export default class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
-            <Route exact path='/home' component={Home}/>
-            <Route path='/' component={Home}/>
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/view-job' component={Job} />
+            <Route
+              exact path='/create-job'
+              //render={(props) => <CreateJob {...props} />}
+              component={CreateJob}
+            />
+            <Route component={Home} />
           </Switch>
         </Router>
       </Provider>

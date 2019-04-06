@@ -11,10 +11,6 @@ class Home extends Component {
     this.props.loadHomeAPIProps();
   }
 
-  viewSingleJob(id) {
-    console.log(id);
-  }
-
   deleteSingleJob(id) {
     console.log(id);
   }
