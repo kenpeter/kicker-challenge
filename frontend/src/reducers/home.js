@@ -123,11 +123,6 @@ export const deleteJobAPI = (id) => {
     dispatch(startDeleteJob());
     deleteSingleJob(id)
       .then(res => {
-
-        // test
-        console.log('res1');
-        console.log(res);
-
         return res.json();
       })
       .then(res => {

@@ -8,9 +8,13 @@ export const getJobs = () => {
 };
 
 export const createSingleJob = (item) => {
-  /* eslint-disable no-undef */
+  const body = `title=${item.title}&description=${item.description}&location=${item.location}`;
   return fetch(Config.createJobUrl, {
-    method: 'POST'
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded', // <-- Specifying the Content-Type
+    }),
+    body: body
   });
 };
 

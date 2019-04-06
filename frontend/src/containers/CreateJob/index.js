@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import { createJobAPI } from "../../reducers/createJob";
+import connect from "react-redux/es/connect/connect";
 
 class CreateJob extends Component {
 
@@ -24,6 +25,7 @@ class CreateJob extends Component {
 
   createJob() {
     console.log(this.state);
+    this.props.createJobAPIProps(this.state);
   }
 
   render() {
@@ -72,4 +74,14 @@ class CreateJob extends Component {
   }
 }
 
-export default CreateJob;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  createJobAPIProps: (item) => dispatch(createJobAPI(item))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateJob);
