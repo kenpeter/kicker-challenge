@@ -11,7 +11,6 @@ class Home extends Component {
   }
 
   deleteSingleJob(id) {
-    console.log('-- deleteSingleJob --');
     this.props.deleteJobAPIProps(id);
   }
 

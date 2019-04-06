@@ -18,7 +18,7 @@ export default class App extends Component {
             <Route exact path='/home' component={Home} />
             <Route exact path='/view-job' component={Job} />
             <Route
-              exact path='/create-job'
+              exact path='/view-create-job'
               component={CreateJob}
             />
             <Route component={Home} />
