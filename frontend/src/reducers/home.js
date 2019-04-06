@@ -131,10 +131,19 @@ export const deleteJobAPI = (id) => {
         return res.json();
       })
       .then(res => {
-        //const data = res;
         dispatch(deleteJobSuccess());
+        dispatch(startLoadHome());
 
-        loadHomeAPI();
+        getJobs()
+          .then(resJobs => {
+            return resJobs.json();
+          })
+          .then(resJobs => {
+            dispatch(loadHomeSuccess(resJobs));
+          })
+          .catch((err) => {
+            loadHomeFail(err);
+          });
       })
       .catch((err) => {
         deleteJobFail('delete job fail');
