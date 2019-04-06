@@ -1,4 +1,4 @@
-import getJobs from '../api/jobs';
+import { getJobs } from '../api/jobs';
 
 export const START_LOAD_HOME = 'app/home/START_LOAD_HOME';
 export const LOAD_HOME_SUCCESS = 'app/home/LOAD_HOME_SUCCESS';

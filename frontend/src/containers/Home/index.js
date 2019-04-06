@@ -3,11 +3,20 @@ import { connect } from 'react-redux';
 /* eslint-disable import/no-named-default */
 import { default as HomeComponent } from '../../components/Home';
 import { loadHomeAPI } from '../../reducers/home';
+import Config from "../../config";
 
 class Home extends Component {
   componentDidMount() {
     /* eslint-disable react/destructuring-assignment */
     this.props.loadHomeAPIProps();
+  }
+
+  viewSingleJob(id) {
+    console.log(id);
+  }
+
+  deleteSingleJob(id) {
+    console.log(id);
   }
 
   render() {
@@ -19,7 +28,11 @@ class Home extends Component {
           data.length === 0 ?
             <p>Loading....</p>
             :
-            <HomeComponent data={ data } />
+            <HomeComponent
+              data={ data }
+              viewSingleJob={this.viewSingleJob}
+              deleteSingleJob={this.deleteSingleJob}
+            />
         }
       </div>
     );
