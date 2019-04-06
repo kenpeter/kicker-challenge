@@ -32,7 +32,7 @@ const Home = ({ data, deleteSingleJob }) => {
     <div className='home'>
       <br/>
       <p>
-        <Link class='btn btn-primary center' to='/view-create-job'>Create a job ad</Link>
+        <Link class='btn btn-primary' to='/view-create-job'>Create a job ad</Link>
       </p>
       <table className="table table-striped">
         <thead>
