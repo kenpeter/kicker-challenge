@@ -19,7 +19,6 @@ export default class App extends Component {
             <Route exact path='/view-job' component={Job} />
             <Route
               exact path='/create-job'
-              //render={(props) => <CreateJob {...props} />}
               component={CreateJob}
             />
             <Route component={Home} />

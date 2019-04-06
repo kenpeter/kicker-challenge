@@ -6,6 +6,8 @@ const Home = ({ data, deleteSingleJob }) => {
     let res = data.map((item, index) => {
       return (
         <tr key={index}>
+          <td>{item.id}</td>
+
           <td>
             <Link to={{
               pathname: '/view-job',
@@ -31,6 +33,7 @@ const Home = ({ data, deleteSingleJob }) => {
       <table className="table table-striped">
         <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Job title</th>
             <th scope="col">Action</th>
           </tr>

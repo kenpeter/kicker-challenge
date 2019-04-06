@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 /* eslint-disable import/no-named-default */
 import { default as HomeComponent } from '../../components/Home';
-import { loadHomeAPI } from '../../reducers/home';
-import Config from "../../config";
+import { loadHomeAPI, deleteJobAPI } from '../../reducers/home';
 
 class Home extends Component {
   componentDidMount() {
@@ -12,7 +11,8 @@ class Home extends Component {
   }
 
   deleteSingleJob(id) {
-    console.log(id);
+    console.log('-- deleteSingleJob --');
+    this.props.deleteJobAPIProps(id);
   }
 
   render() {
@@ -26,8 +26,7 @@ class Home extends Component {
             :
             <HomeComponent
               data={ data }
-              viewSingleJob={this.viewSingleJob}
-              deleteSingleJob={this.deleteSingleJob}
+              deleteSingleJob={this.deleteSingleJob.bind(this)}
             />
         }
       </div>
@@ -46,7 +45,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  loadHomeAPIProps: () => dispatch(loadHomeAPI())
+  loadHomeAPIProps: () => dispatch(loadHomeAPI()),
+  deleteJobAPIProps: (id) => dispatch(deleteJobAPI(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

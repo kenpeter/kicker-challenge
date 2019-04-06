@@ -1,8 +1,12 @@
-import { getJobs } from '../api/jobs';
+import { getJobs, deleteSingleJob } from '../api/jobs';
 
 export const START_LOAD_HOME = 'app/home/START_LOAD_HOME';
 export const LOAD_HOME_SUCCESS = 'app/home/LOAD_HOME_SUCCESS';
 export const LOAD_HOME_FAIL = 'app/home/LOAD_HOME_FAIL';
+
+export const START_DELETE_JOB = 'app/job/START_DELETE_JOB';
+export const DELETE_JOB_SUCCESS = 'app/job/DELETE_JOB_SUCCESS';
+export const DELETE_JOB_FAIL = 'app/job/DELETE_JOB_FAIL';
 
 const initState = {
   data: [],
@@ -83,6 +87,57 @@ export const loadHomeAPI = () => {
       })
       .catch((err) => {
         loadHomeFail(err);
+      });
+  };
+};
+
+export const startDeleteJob = () => {
+  return {
+    type: START_DELETE_JOB,
+    loading: true,
+    isError: false,
+    errors: ''
+  };
+};
+
+export const deleteJobSuccess = () => {
+  return {
+    type: DELETE_JOB_SUCCESS,
+    loading: false,
+    isError: false,
+    errors: ''
+  };
+};
+
+export const deleteJobFail = (errors) => {
+  return {
+    type: DELETE_JOB_FAIL,
+    loading: false,
+    isError: true,
+    errors
+  };
+};
+
+export const deleteJobAPI = (id) => {
+  return dispatch => {
+    dispatch(startDeleteJob());
+    deleteSingleJob(id)
+      .then(res => {
+
+        // test
+        console.log('res1');
+        console.log(res);
+
+        return res.json();
+      })
+      .then(res => {
+        //const data = res;
+        dispatch(deleteJobSuccess());
+
+        loadHomeAPI();
+      })
+      .catch((err) => {
+        deleteJobFail('delete job fail');
       });
   };
 };
