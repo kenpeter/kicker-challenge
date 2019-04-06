@@ -47,3 +47,7 @@ you many need to run `composer require spatie/laravel-cors`
 
 ### Install
 * `docker-compose exec frontend yarn install`
+
+
+### Testing
+* `yarn test`
