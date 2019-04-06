@@ -14,6 +14,7 @@ class CorsMiddleware
    */
   public function handle($request, Closure $next)
   {
+    /*
     $headers = [
       'Access-Control-Allow-Origin'      => '*',
       'Access-Control-Allow-Methods'     => 'POST, GET, OPTIONS, PUT, DELETE',
@@ -21,11 +22,20 @@ class CorsMiddleware
       'Access-Control-Max-Age'           => '86400',
       'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With'
     ];
+    */
+
+    $headers = [
+      'Access-Control-Allow-Origin'      => '*',
+      'Access-Control-Allow-Credentials'     => 'true',
+      'Access-Control-Allow-Methods'           => 'GET,HEAD,OPTIONS,POST,PUT',
+      'Access-Control-Allow-Headers'     => 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+    ];
 
     if ($request->isMethod('OPTIONS'))
     {
       return response()->json('{"method":"OPTIONS"}', 200, $headers);
     }
+    return response()->json('{"method":"OPTIONS"}', 200, $headers);
 
     $response = $next($request);
     foreach($headers as $key => $value)

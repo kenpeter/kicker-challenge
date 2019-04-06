@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-header("Access-Control-Allow-Origin: *");
-
 use App\Job;
 use App\Http\Controllers\Controller;
 use http\Env\Response;

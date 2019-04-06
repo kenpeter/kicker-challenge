@@ -55,6 +55,7 @@ services:
     build:
       context: ./frontend
     image: coding-challenge-frontend
+    container_name: coding-challenge-front
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
