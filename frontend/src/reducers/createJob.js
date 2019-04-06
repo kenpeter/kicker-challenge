@@ -1,4 +1,5 @@
 import { createSingleJob } from '../api/jobs';
+import history from '../history';
 
 export const START_CREATE_JOB = 'app/job/START_CREATE_JOB';
 export const CREATE_JOB_SUCCESS = 'app/job/CREATE_JOB_SUCCESS';
@@ -74,6 +75,8 @@ export const createJobAPI = (item) => {
       })
       .then(res => {
         dispatch(createJobSuccess());
+
+        history.push('/home')
       })
       .catch((err) => {
         createJobFail('create job fail');
