@@ -1,3 +1,5 @@
 {
-  "jobUrl": "http://localhost:8000/api/jobs"
+  "jobUrl": "http://localhost:8000/api/jobs",
+  "singleJobUrl": "http://localhost:8000/api/job/",
+  "deleteJobUrl": "http://localhost:8000/api/job/delete"
 }
